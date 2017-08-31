@@ -3,6 +3,8 @@ package view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.provider.CalendarContract;
+import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -122,7 +124,6 @@ public class ZdyView extends LinearLayout implements ViewPager.OnPageChangeListe
      * 绘制选择横滑
      */
     private void drawtop() {
-        ll.setBackgroundColor(Color.WHITE);
         for (int i = 0; i < list.size(); i++) {
             final TextView tv = (TextView) View.inflate(context, R.layout.tv_item, null);
             tv.setText(list.get(i));

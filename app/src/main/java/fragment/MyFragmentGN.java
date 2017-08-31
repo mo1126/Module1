@@ -5,8 +5,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.widget.TextView;
 
 import com.bwie.module.Myapi;
 import com.bwie.module.R;
@@ -14,7 +12,6 @@ import com.google.gson.Gson;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
-import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import java.util.ArrayList;
@@ -28,7 +25,7 @@ import view.xlistview.XListView;
  * Created by Mo on 2017/8/30.
  */
 
-public class MyFragment extends android.support.v4.app.Fragment implements XListView.IXListViewListener{
+public class MyFragmentGN extends android.support.v4.app.Fragment implements XListView.IXListViewListener{
 
     private View view;
     private List<News.ResultBean.DataBean> list;
@@ -53,7 +50,7 @@ public class MyFragment extends android.support.v4.app.Fragment implements XList
     private void getdata() {
         RequestParams params=new RequestParams(Myapi.url);
         params.addQueryStringParameter("key",Myapi.key);
-        params.addQueryStringParameter("type","top");
+        params.addQueryStringParameter("type","guonei");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {

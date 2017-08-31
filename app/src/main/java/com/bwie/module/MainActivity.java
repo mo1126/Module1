@@ -1,6 +1,7 @@
 package com.bwie.module;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
@@ -18,11 +19,13 @@ import Bean.News;
 import fragment.Fragment1;
 import fragment.Fragment2;
 import fragment.MyFragment;
+import fragment.MyFragmentGN;
+import fragment.MyFragmentSH;
 import view.ZdyView;
 import view.xlistview.XListView;
 
 @ContentView(R.layout.activity_main)
-public class MainActivity extends SlidingFragmentActivity implements XListView.IXListViewListener{
+public class MainActivity extends SlidingFragmentActivity {
 
 
     private String url="http://v.juhe.cn/toutiao/index";
@@ -40,16 +43,18 @@ public class MainActivity extends SlidingFragmentActivity implements XListView.I
         fragmentList = new ArrayList<>();
         beans = new ArrayList<>();
 
-        beans.add("娱乐");
         beans.add("头条");
+        beans.add("社会");
+        beans.add("国内");
+        beans.add("娱乐");
+        beans.add("体育");
         beans.add("军事");
-        beans.add("游戏");
-        beans.add("国际");
-        beans.add("娱乐");
-        beans.add("娱乐");
-        beans.add("娱乐");
+        beans.add("科技");
+        beans.add("财经");
+        beans.add("时尚");
         fragmentList.add(new MyFragment());
-        fragmentList.add(new MyFragment());
+        fragmentList.add(new MyFragmentSH());
+        fragmentList.add(new MyFragmentGN());
         fragmentList.add(new MyFragment());
         fragmentList.add(new MyFragment());
         fragmentList.add(new MyFragment());
@@ -80,13 +85,10 @@ public class MainActivity extends SlidingFragmentActivity implements XListView.I
         menu.showSecondaryMenu();
     }
 
-    @Override
-    public void onRefresh() {
 
-    }
-
-    @Override
-    public void onLoadMore() {
-
+    //左侧滑菜单的更多登陆方式点击事件
+    public void morelogin(View view){
+        Intent intent=new Intent(this, MoreLoginActivity.class);
+        startActivity(intent);
     }
 }
