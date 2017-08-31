@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.bwie.module.MainActivity">
 
-     <view.xlistview.XListView
-         android:id="@+id/lv"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"></view.xlistview.XListView>
+<view.Zdyview
+    android:id="@+id/zdy"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"></view.Zdyview>
 
 </LinearLayout>

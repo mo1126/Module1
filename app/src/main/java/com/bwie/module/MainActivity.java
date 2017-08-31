@@ -2,6 +2,7 @@ package com.bwie.module;
 
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 
 
 import com.google.gson.Gson;
@@ -19,24 +20,45 @@ import java.util.List;
 import Bean.News;
 import fragment.Fragment1;
 import fragment.Fragment2;
+import fragment.MyFragment;
 import myadapter.Myadapter;
+import view.Zdyview;
 import view.xlistview.XListView;
 
 @ContentView(R.layout.activity_main)
 public class MainActivity extends SlidingFragmentActivity implements XListView.IXListViewListener{
 
-    @ViewInject(R.id.lv) XListView lv;
+
     private String url="http://v.juhe.cn/toutiao/index";
     private List<News.ResultBean.DataBean> data;
-    private Myadapter myadapter;
-
+    @ViewInject(R.id.zdy) Zdyview zdy;
+    private List<String> beans;
+    private List<Fragment> fragmentList;
     @Override
     public  void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         setslidingmenu();
-        initData();
-        getData();
+        fragmentList = new ArrayList<>();
+        beans = new ArrayList<>();
+
+        beans.add("娱乐");
+        beans.add("娱乐");
+        beans.add("娱乐");
+        beans.add("娱乐");
+        beans.add("娱乐");
+        beans.add("娱乐");
+        beans.add("娱乐");
+        beans.add("娱乐");
+        fragmentList.add(new MyFragment());
+        fragmentList.add(new MyFragment());
+        fragmentList.add(new MyFragment());
+        fragmentList.add(new MyFragment());
+        fragmentList.add(new MyFragment());
+        fragmentList.add(new MyFragment());
+        fragmentList.add(new MyFragment());
+        fragmentList.add(new MyFragment());
+        zdy.diaplay(beans, fragmentList);
     }
 
     private void setslidingmenu() {
@@ -54,63 +76,14 @@ public class MainActivity extends SlidingFragmentActivity implements XListView.I
 
     }
 
-    private void initData() {
-        data=new ArrayList<>();
-        lv.setXListViewListener(this);
-        lv.setPullLoadEnable(true);
-    }
-
-    private void getData() {
-        RequestParams entity=new RequestParams(url);
-        entity.addQueryStringParameter("key","22a108244dbb8d1f49967cd74a0c144d");
-        entity.addQueryStringParameter("type","yule");
-
-        x.http().post(entity, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-                gsonjx(result);
-            }
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-            }
-            @Override
-            public void onCancelled(CancelledException cex) {
-            }
-            @Override
-            public void onFinished() {
-            }
-        });
-    }
-
-    private void gsonjx(String result) {
-        Gson gson=new Gson();
-        News news = gson.fromJson(result, News.class);
-        data = news.result.data;
-        setdata();
-    }
-
-    private void setdata() {
-        if(myadapter==null){
-            myadapter = new Myadapter(this,data);
-            lv.setAdapter(myadapter);
-        }else{
-            myadapter.notifyDataSetChanged();
-        }
-
-        lv.stopLoadMore();
-        lv.stopRefresh();
-    }
 
     @Override
     public void onRefresh() {
-        
-        getData();
+
     }
 
     @Override
     public void onLoadMore() {
-        getData();
-        myadapter.addlist(data);
-        myadapter.notifyDataSetChanged();
+
     }
 }
