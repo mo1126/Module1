@@ -19,8 +19,15 @@ import Bean.News;
 import fragment.Fragment1;
 import fragment.Fragment2;
 import fragment.MyFragment;
+import fragment.MyFragmentCJ;
+import fragment.MyFragmentGJ;
 import fragment.MyFragmentGN;
+import fragment.MyFragmentJS;
+import fragment.MyFragmentKJ;
 import fragment.MyFragmentSH;
+import fragment.MyFragmentSS;
+import fragment.MyFragmentTY;
+import fragment.MyFragmentYL;
 import view.ZdyView;
 import view.xlistview.XListView;
 
@@ -46,6 +53,7 @@ public class MainActivity extends SlidingFragmentActivity {
         beans.add("头条");
         beans.add("社会");
         beans.add("国内");
+        beans.add("国际");
         beans.add("娱乐");
         beans.add("体育");
         beans.add("军事");
@@ -55,12 +63,13 @@ public class MainActivity extends SlidingFragmentActivity {
         fragmentList.add(new MyFragment());
         fragmentList.add(new MyFragmentSH());
         fragmentList.add(new MyFragmentGN());
-        fragmentList.add(new MyFragment());
-        fragmentList.add(new MyFragment());
-        fragmentList.add(new MyFragment());
-        fragmentList.add(new MyFragment());
-        fragmentList.add(new MyFragment());
-        fragmentList.add(new MyFragment());
+        fragmentList.add(new MyFragmentGJ());
+        fragmentList.add(new MyFragmentYL());
+        fragmentList.add(new MyFragmentTY());
+        fragmentList.add(new MyFragmentJS());
+        fragmentList.add(new MyFragmentKJ());
+        fragmentList.add(new MyFragmentCJ());
+        fragmentList.add(new MyFragmentSS());
         zdy.diaplay(beans, fragmentList);
     }
 
