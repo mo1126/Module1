@@ -73,8 +73,13 @@ public class MyFragmentYL extends android.support.v4.app.Fragment implements XLi
     }
 
     private void setdata() {
-        myadapter = new Myadapter(getContext(), list);
-        xlv.setAdapter(myadapter);
+        if(myadapter==null){
+            myadapter = new Myadapter(getContext(), list);
+            xlv.setAdapter(myadapter);
+        }else{
+            myadapter.addlist(list);
+            myadapter.notifyDataSetChanged();
+        }
         xlv.stopRefresh();
         xlv.stopLoadMore();
     }
@@ -91,6 +96,7 @@ public class MyFragmentYL extends android.support.v4.app.Fragment implements XLi
     @Override
     public void onRefresh() {
         list.clear();
+        myadapter=null;
         getdata();
     }
 

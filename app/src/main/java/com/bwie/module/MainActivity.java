@@ -5,10 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 
 import com.kson.slidingmenu.SlidingMenu;
 import com.kson.slidingmenu.app.SlidingFragmentActivity;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.umeng.socialize.UMShareAPI;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -41,6 +45,7 @@ public class MainActivity extends SlidingFragmentActivity {
     private List<String> beans;
     private List<Fragment> fragmentList;
     private SlidingMenu menu;
+    public static ImageView head;
 
     @Override
     public  void onCreate(Bundle savedInstanceState) {
@@ -48,8 +53,8 @@ public class MainActivity extends SlidingFragmentActivity {
         x.view().inject(this);
         setslidingmenu();
         fragmentList = new ArrayList<>();
+        head = (ImageView) findViewById(R.id.head);
         beans = new ArrayList<>();
-
         beans.add("头条");
         beans.add("社会");
         beans.add("国内");
@@ -94,6 +99,15 @@ public class MainActivity extends SlidingFragmentActivity {
         menu.showSecondaryMenu();
     }
 
+    /**
+     *  左侧滑菜单的登录回调方法
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+
+    }
 
     //左侧滑菜单的更多登陆方式点击事件
     public void morelogin(View view){

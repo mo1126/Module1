@@ -35,6 +35,7 @@ public class MyFragment extends android.support.v4.app.Fragment implements XList
     private Myadapter myadapter;
     private XListView xlv;
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,12 +58,12 @@ public class MyFragment extends android.support.v4.app.Fragment implements XList
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                System.out.println(result);
+
                 Gson gson=new Gson();
                 News news = gson.fromJson(result, News.class);
                  list = news.result.data;
-                System.out.println(list);
-                setdata();
+
+               setdata();
             }
 
             @Override
@@ -76,8 +77,14 @@ public class MyFragment extends android.support.v4.app.Fragment implements XList
     }
 
     private void setdata() {
-        myadapter = new Myadapter(getContext(), list);
-        xlv.setAdapter(myadapter);
+        if(myadapter==null){
+            myadapter = new Myadapter(getContext(), list);
+            xlv.setAdapter(myadapter);
+        }else{
+            myadapter.addlist(list);
+            myadapter.notifyDataSetChanged();
+        }
+
         xlv.stopRefresh();
         xlv.stopLoadMore();
     }
@@ -85,7 +92,6 @@ public class MyFragment extends android.support.v4.app.Fragment implements XList
 
     private void initData() {
         list = new ArrayList<>();
-
         xlv.setPullLoadEnable(true);
         xlv.setXListViewListener(this);
     }
@@ -94,12 +100,12 @@ public class MyFragment extends android.support.v4.app.Fragment implements XList
     @Override
     public void onRefresh() {
         list.clear();
+        myadapter=null;
         getdata();
     }
 
     @Override
     public void onLoadMore() {
         getdata();
-        myadapter.addlist(list);
     }
 }

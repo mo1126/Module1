@@ -14,6 +14,7 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -117,6 +118,11 @@ public class ZdyView extends LinearLayout implements ViewPager.OnPageChangeListe
         @Override
         public int getCount() {
             return fragments.size();
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+//            super.destroyItem(container, position, object);
         }
     }
 

@@ -36,6 +36,7 @@
 
         >
         <EditText
+            android:id="@+id/et_phone"
             android:layout_margin="10dp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -46,7 +47,7 @@
 
         <TextView
             android:layout_margin="10dp"
-            android:id="@+id/button"
+            android:id="@+id/send_msg"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#fff"
@@ -64,6 +65,7 @@
         android:background="@drawable/edittext_bg"
         >
         <EditText
+            android:id="@+id/et_yanzhengma"
             android:layout_margin="10dp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -81,6 +83,7 @@
         android:gravity="center"
         android:textColor="#999"/>
     <Button
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="进入头条"
@@ -133,7 +136,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp" android:layout_weight="1"
-            android:src="@drawable/tianyi"/>
+            android:src="@drawable/tianyi" />
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp" android:layout_weight="1"

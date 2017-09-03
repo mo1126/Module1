@@ -32,6 +32,7 @@ public class MyFragmentGJ extends android.support.v4.app.Fragment implements XLi
     private Myadapter myadapter;
     private XListView xlv;
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -73,10 +74,13 @@ public class MyFragmentGJ extends android.support.v4.app.Fragment implements XLi
     }
 
     private void setdata() {
-
+        if(myadapter==null){
             myadapter = new Myadapter(getContext(), list);
             xlv.setAdapter(myadapter);
-
+        }else{
+            myadapter.addlist(list);
+            myadapter.notifyDataSetChanged();
+        }
         xlv.stopRefresh();
         xlv.stopLoadMore();
     }
@@ -93,6 +97,7 @@ public class MyFragmentGJ extends android.support.v4.app.Fragment implements XLi
     @Override
     public void onRefresh() {
         list.clear();
+        myadapter=null;
         getdata();
     }
 
