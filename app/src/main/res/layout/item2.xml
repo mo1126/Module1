@@ -9,12 +9,13 @@
         android:layout_height="150dp"
         android:layout_below="@+id/title2"
         android:layout_alignRight="@+id/date2"
-        android:layout_alignEnd="@+id/date2" />
+        android:layout_alignEnd="@+id/date2"
+        android:scaleType="centerCrop"/>
     <TextView
         android:id="@+id/title2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#333"/>
+        android:textColor="@color/text_color_black"/>
    <TextView
        android:id="@+id/author_name2"
        android:layout_width="wrap_content"

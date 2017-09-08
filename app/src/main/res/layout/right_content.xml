@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/every_bg">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:layout_height="30dp"
+        android:background="@color/every_bg">
 
         <ImageView
             android:layout_width="20dp"
@@ -16,20 +18,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="设置"
-            android:textSize="15dp"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            />
+            android:text="设置"
+            android:textColor="@color/text_color_fragment"
+            android:textSize="15dp" />
     </RelativeLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="#E6E6E6"
+        android:background="@color/view_bg"
         />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:background="@color/every_bg"
         >
 
         <TextView
@@ -41,7 +45,8 @@
             android:id="@+id/textView2"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:textColor="@color/text_color_fragment"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -55,11 +60,12 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#E6E6E6"
+        android:background="@color/view1dp_bg"
         />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:background="@color/every_bg"
         >
 
         <TextView
@@ -70,7 +76,8 @@
             android:textSize="13dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:textColor="@color/text_color_fragment"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -83,12 +90,13 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#E6E6E6"
+        android:background="@color/view1dp_bg"
         />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:layout_height="30dp"
+        android:background="@color/every_bg">
 
         <TextView
             android:layout_width="wrap_content"
@@ -98,12 +106,12 @@
             android:layout_alignParentTop="true"
             android:gravity="center"
             android:text="列表显示摘要"
-            android:textSize="13dp" />
+            android:textSize="13dp"
+            android:textColor="@color/text_color_fragment"/>
 
-        <ImageView
+        <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/rightoff"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
@@ -111,39 +119,47 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#E6E6E6"
+        android:background="@color/view1dp_bg"
         />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:background="@color/every_bg"
+        android:id="@+id/network_sll"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:gravity="center"
             android:text="非WIFI网络省流量"
-            android:textSize="13dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:textColor="@color/text_color_fragment"
+            android:textSize="13dp" />
+
         <TextView
+            android:id="@+id/bigorno"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="极省流量(不下载图)"
             android:layout_alignParentRight="true"
             android:gravity="center"
-            android:textColor="#999"
-            />
+            android:text="最佳效果(加载大图)"
+            android:textColor="#999" />
     </RelativeLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#E6E6E6"
+        android:background="@color/view1dp_bg"
         />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:background="@color/every_bg"
+
         >
 
         <TextView
@@ -154,7 +170,8 @@
             android:textSize="13dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:textColor="@color/text_color_fragment"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -167,38 +184,43 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#E6E6E6"
-        />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:gravity="center"
-            android:text="推送通知"
-            android:textSize="13dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/on"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-    </RelativeLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="#E6E6E6"
+        android:background="@color/view1dp_bg"
         />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:background="@color/every_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="推送通知"
+            android:textSize="13dp"
+            android:textColor="@color/text_color_fragment"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Switch
+            android:id="@+id/tuisong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/view_bg"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/every_bg"
+        android:id="@+id/lixian"
         >
 
         <TextView
@@ -207,6 +229,7 @@
             android:gravity="center"
             android:text="离线下载"
             android:textSize="13dp"
+            android:textColor="@color/text_color_fragment"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -220,11 +243,12 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#E6E6E6"
+        android:background="@color/view1dp_bg"
         />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:background="@color/every_bg"
         >
 
         <TextView
@@ -235,7 +259,8 @@
             android:textSize="13dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:textColor="@color/text_color_fragment"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

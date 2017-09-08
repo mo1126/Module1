@@ -1,9 +1,12 @@
 package fragment;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +35,7 @@ public class Fragment1 extends Fragment implements View.OnClickListener{
     private ImageView yz_qq;
     private ImageView yz_weibo;
     private ImageView yz_weixin;
+    private ImageView yejian;
 
     @Nullable
     @Override
@@ -52,17 +56,18 @@ public class Fragment1 extends Fragment implements View.OnClickListener{
         yz_qq = view.findViewById(R.id.yz_qq);
         yz_weibo = view.findViewById(R.id.yz_weibo);
         yz_weixin = view.findViewById(R.id.yz_weixin);
+        yejian = view.findViewById(R.id.yejian);
         yz_phone.setOnClickListener(this);
         yz_qq.setOnClickListener(this);
         yz_weibo.setOnClickListener(this);
         yz_weixin.setOnClickListener(this);
+        yejian.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.yz_qq:
-
                 UMShareAPI.get(getContext()).getPlatformInfo(getActivity(), SHARE_MEDIA.QQ, umAuthListener);
                 break;
             case R.id.yz_phone:
@@ -71,6 +76,16 @@ public class Fragment1 extends Fragment implements View.OnClickListener{
                 UMShareAPI.get(getContext()).getPlatformInfo(getActivity(), SHARE_MEDIA.SINA, umAuthListener);
                 break;
             case R.id.yz_weixin:
+                break;
+            case R.id.yejian:
+                int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+                if(currentNightMode==Configuration.UI_MODE_NIGHT_YES){
+                    ((MainActivity)getActivity()).getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    getActivity().recreate();
+                }else{
+                    ((MainActivity)getActivity()).getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    //getActivity().recreate();
+                }
                 break;
         }
     }

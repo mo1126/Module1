@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="hui">#E3E3E3</color>
-    <color name="black">#000</color>
+    <color name="colorPrimary">#FF4444</color>
+    <color name="colorPrimaryDark">#FF4444</color>
+    <color name="colorAccent">#FF4444</color>
+
+
+    <color name="text_color_hui">#E3E3E3</color>
     <color name="red">#f00</color>
+    <color name="title_bg">#FF4444</color>
+    <color name="every_bg">#99ffffff</color>
+    <color name="text_color_black">#000</color>
+    <color name="view_bg">#E6E6E6</color>
+    <color name="view1dp_bg">#E6E6E6</color>
+    <color name="text_color_fragment">#333333</color>
 
 
 </resources>

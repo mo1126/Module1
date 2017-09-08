@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/every_bg">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -80,7 +81,8 @@
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/every_bg">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -97,7 +99,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="收藏" />
+                android:text="收藏"
+                android:textColor="@color/text_color_fragment"/>
         </LinearLayout>
 
         <LinearLayout
@@ -113,7 +116,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="历史"/>
+                android:text="历史"
+                android:textColor="@color/text_color_fragment"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -122,23 +126,26 @@
             android:gravity="center"
             android:layout_weight="1">
             <ImageView
+                android:id="@+id/yejian"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/yejian"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="夜间"/>
+                android:text="夜间"
+                android:textColor="@color/text_color_fragment"/>
         </LinearLayout>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="#E6E6E6"/>
+        android:background="@color/view_bg"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:background="@color/every_bg"
         >
 
         <TextView
@@ -147,6 +154,7 @@
             android:gravity="center"
             android:text="我的关注"
             android:textSize="13dp"
+            android:textColor="@color/text_color_fragment"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -168,7 +176,8 @@
             android:id="@+id/textView3"
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/imageView4"
-            android:layout_toStartOf="@+id/imageView4" />
+            android:layout_toStartOf="@+id/imageView4"
+            android:textColor="@color/text_color_fragment"/>
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -180,10 +189,11 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#E6E6E6"/>
+        android:background="@color/view1dp_bg"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:background="@color/every_bg"
         >
 
         <TextView
@@ -195,7 +205,8 @@
             android:id="@+id/textView2"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:textColor="@color/text_color_fragment"/>
 
         <ImageView
             android:layout_width="20dp"
@@ -208,11 +219,13 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="#E6E6E6"/>
+        android:background="@color/view_bg"
+        />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:layout_height="30dp"
+        android:background="@color/every_bg">
 
         <TextView
             android:layout_width="wrap_content"
@@ -222,7 +235,8 @@
             android:layout_alignParentTop="true"
             android:gravity="center"
             android:text="头条商城"
-            android:textSize="13dp" />
+            android:textSize="13dp"
+            android:textColor="@color/text_color_fragment"/>
 
         <ImageView
             android:id="@+id/imageView5"
@@ -247,11 +261,12 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#E6E6E6"/>
+        android:background="@color/view1dp_bg"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:layout_height="30dp"
+        android:background="@color/every_bg">
 
         <TextView
             android:id="@+id/textView4"
@@ -262,7 +277,8 @@
             android:layout_alignParentTop="true"
             android:gravity="center"
             android:text="京东特供"
-            android:textSize="13dp" />
+            android:textSize="13dp"
+            android:textColor="@color/text_color_fragment"/>
 
         <ImageView
             android:id="@+id/imageView6"
@@ -288,11 +304,12 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="#E6E6E6"/>
+        android:background="@color/view_bg"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:background="@color/every_bg"
         >
 
         <TextView
@@ -303,7 +320,8 @@
             android:textSize="13dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"/>
+            android:layout_alignParentStart="true"
+            android:textColor="@color/text_color_fragment"/>
 
         <ImageView
             android:layout_width="20dp"
@@ -317,10 +335,11 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#E6E6E6"/>
+        android:background="@color/view1dp_bg"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:background="@color/every_bg"
         >
 
         <TextView
@@ -329,9 +348,10 @@
             android:gravity="center"
             android:text="用户反馈"
             android:textSize="13dp"
+            android:textColor="@color/text_color_fragment"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"/>
+            android:layout_alignParentStart="true" />
 
         <ImageView
             android:layout_width="20dp"
@@ -345,10 +365,11 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#E6E6E6"/>
+        android:background="@color/view1dp_bg"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:background="@color/every_bg"
         >
 
         <TextView
@@ -357,9 +378,10 @@
             android:gravity="center"
             android:text="系统设置"
             android:textSize="13dp"
+            android:textColor="@color/text_color_fragment"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"/>
+            android:layout_alignParentStart="true" />
 
         <ImageView
             android:layout_width="20dp"
@@ -373,7 +395,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#E6E6E6"/>
+        android:background="@color/view1dp_bg"/>
 
 
 </LinearLayout>

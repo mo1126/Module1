@@ -25,17 +25,17 @@ public class MoreLoginActivity extends AppCompatActivity implements View.OnClick
 
     Handler handler=new Handler();
     Runnable runnable=new Runnable() {
-        @Override
-        public void run() {
-            TIME--;
-            if(TIME==0){
-                handler.removeCallbacks(this);
-                send_msg.setText("再次获取");
-                send_msg.setEnabled(true);
-            }else{
-                send_msg.setEnabled(false);
-                send_msg.setText(TIME+"s");
-                handler.postDelayed(this,1000);
+                    @Override
+                    public void run() {
+                        TIME--;
+                        if(TIME==0){
+                            handler.removeCallbacks(this);
+                            send_msg.setText("再次获取");
+                            send_msg.setEnabled(true);
+                        }else{
+                            send_msg.setEnabled(false);
+                            send_msg.setText(TIME+"s");
+                            handler.postDelayed(this,1000);
             }
         }
     };

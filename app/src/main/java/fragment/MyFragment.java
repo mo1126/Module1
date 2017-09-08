@@ -1,15 +1,19 @@
 package fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.bwie.module.Myapi;
 import com.bwie.module.R;
+import com.bwie.module.XQActivity;
+import com.bwie.utils.Dao;
 import com.google.gson.Gson;
 
 import org.xutils.common.Callback;
@@ -43,12 +47,21 @@ public class MyFragment extends android.support.v4.app.Fragment implements XList
         return view;
     }
 
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         xlv = view.findViewById(R.id.xlv);
         initData();
         getdata();
+        xlv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent=new Intent(getContext(),XQActivity.class);
+                intent.putExtra("url",list.get(i-1).url);
+                startActivity(intent);
+            }
+        });
     }
 
     private void getdata() {
@@ -62,13 +75,11 @@ public class MyFragment extends android.support.v4.app.Fragment implements XList
                 Gson gson=new Gson();
                 News news = gson.fromJson(result, News.class);
                  list = news.result.data;
-
                setdata();
             }
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {  }
-
             @Override
             public void onCancelled(CancelledException cex) { }
             @Override
@@ -88,8 +99,6 @@ public class MyFragment extends android.support.v4.app.Fragment implements XList
         xlv.stopRefresh();
         xlv.stopLoadMore();
     }
-
-
     private void initData() {
         list = new ArrayList<>();
         xlv.setPullLoadEnable(true);

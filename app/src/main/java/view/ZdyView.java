@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,8 @@ import com.bwie.module.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import Bean.Pindao;
+
 /**
  * Created by Mo on 2017/8/31.
  */
@@ -31,7 +34,7 @@ import java.util.List;
 public class ZdyView extends LinearLayout implements ViewPager.OnPageChangeListener{
 
     public Context context;
-    public List<String> list;
+    public List<Pindao> list;
     public List<Fragment> fragments;
     private ViewPager vp;
     private LinearLayout ll;
@@ -60,17 +63,19 @@ public class ZdyView extends LinearLayout implements ViewPager.OnPageChangeListe
         vp = view.findViewById(R.id.vp);
         vp.addOnPageChangeListener(this);
         tv_list = new ArrayList<>();
+        fragments=new ArrayList<>();
     }
 
     //得到外部传的数据
-    public void diaplay(List<String> list, List<Fragment> fragments){
+    public void diaplay(List<Pindao> list, List<Fragment> fragments){
         this.list=list;
         this.fragments=fragments;
-
         darwUi();
     }
     //绘制页面
     private void darwUi() {
+        System.out.println(list.toString());
+        System.out.println(fragments.toString());
         drawtop();
         drawViewpager();
     }
@@ -78,8 +83,11 @@ public class ZdyView extends LinearLayout implements ViewPager.OnPageChangeListe
     /**
      * 绘制viewpager
      */
+
     private void drawViewpager() {
-        vp.setAdapter(new Mypageradapter(((FragmentActivity)context).getSupportFragmentManager()));
+        Mypageradapter mypageradapter = new Mypageradapter(((FragmentActivity) context).getSupportFragmentManager());
+        vp.setAdapter(mypageradapter);
+        mypageradapter.notifyDataSetChanged();
     }
 
 
@@ -96,20 +104,16 @@ public class ZdyView extends LinearLayout implements ViewPager.OnPageChangeListe
             }else{
                 tv_list.get(i).setSelected(false);
             }
-            
         }
     }
 
     @Override
-    public void onPageScrollStateChanged(int state) {
-
-    }
+    public void onPageScrollStateChanged(int state) {}
 
     public class Mypageradapter extends FragmentPagerAdapter{
         public Mypageradapter(FragmentManager fm) {
             super(fm);
         }
-
         @Override
         public Fragment getItem(int position) {
             return fragments.get(position);
@@ -117,23 +121,38 @@ public class ZdyView extends LinearLayout implements ViewPager.OnPageChangeListe
 
         @Override
         public int getCount() {
-            return fragments.size();
+            int sum=0;
+            for (int i = 0; i < list.size(); i++) {
+                if(list.get(i).isSelect){
+                    sum++;
+                }
+            }
+            return sum;
         }
 
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
-//            super.destroyItem(container, position, object);
-        }
+            //super.destroyItem(container, 0, object);
+    }
+
     }
 
     /**
      * 绘制选择横滑
      */
     private void drawtop() {
-        for (int i = 0; i < list.size(); i++) {
-            final TextView tv = (TextView) View.inflate(context, R.layout.tv_item, null);
-            tv.setText(list.get(i));
+        int num=0;
+        for (Pindao pindao : list) {
+            if(pindao.isSelect){
+                num++;
+            }
+        }
 
+        tv_list.clear();
+        ll.removeAllViews();
+        for (int i = 0; i < num; i++) {
+            final TextView tv = (TextView) View.inflate(context, R.layout.tv_item, null);
+                    tv.setText(list.get(i).name);
             //设置点击事件
             final int finalI = i;
             tv.setOnClickListener(new OnClickListener() {

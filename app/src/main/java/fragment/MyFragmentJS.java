@@ -1,13 +1,16 @@
 package fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import com.bwie.module.Myapi;
 import com.bwie.module.R;
+import com.bwie.module.XQActivity;
 import com.google.gson.Gson;
 
 import org.xutils.common.Callback;
@@ -46,6 +49,14 @@ public class MyFragmentJS extends android.support.v4.app.Fragment implements XLi
         xlv = view.findViewById(R.id.xlv);
         initData();
         getdata();
+        xlv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent=new Intent(getContext(),XQActivity.class);
+                intent.putExtra("url",list.get(i-1).url);
+                startActivity(intent);
+            }
+        });
     }
 
     private void getdata() {

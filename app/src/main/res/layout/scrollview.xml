@@ -3,21 +3,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
     <HorizontalScrollView
+        android:background="@color/text_color_hui"
         android:id="@+id/horizontalscrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        android:layout_weight="4"
+         >
         <LinearLayout
-            android:background="@color/hui"
+            android:background="@color/text_color_hui"
             android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
            ></LinearLayout>
     </HorizontalScrollView>
-
+    <ImageView
+        android:id="@+id/pindao"
+        android:layout_weight="1"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/jiahao"
+        android:background="@color/text_color_hui"/>
+</LinearLayout>
     <android.support.v4.view.ViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"

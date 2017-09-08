@@ -1,6 +1,7 @@
 package myadapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -113,19 +114,25 @@ public class Myadapter extends BaseAdapter{
                     break;
             }
         }
-
+        SharedPreferences bigorno = context.getSharedPreferences("bigorno", Context.MODE_PRIVATE);
+        boolean b = bigorno.getBoolean("big", true);
         switch (type){
             case atype:
                 holder1.title.setText(list.get(i).title);
                 holder1.author_name.setText(list.get(i).author_name);
                 holder1.date.setText(list.get(i).date);
-                ImageLoader.getInstance().displayImage(list.get(i).thumbnail_pic_s,holder1.iv);
+                if(b){
+                    ImageLoader.getInstance().displayImage(list.get(i).thumbnail_pic_s,holder1.iv);
+                }
                 break;
             case btype:
                holder2.title2.setText(list.get(i).title);
                 holder2.author_name2.setText(list.get(i).author_name);
                 holder2.date2.setText(list.get(i).date);
-               ImageLoader.getInstance().displayImage(list.get(i).thumbnail_pic_s,holder2.iv2);
+                if(b){
+                    ImageLoader.getInstance().displayImage(list.get(i).thumbnail_pic_s,holder2.iv2);
+                }
+
                 break;
         }
         return view;
