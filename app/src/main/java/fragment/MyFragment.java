@@ -36,8 +36,9 @@ public class MyFragment extends android.support.v4.app.Fragment implements XList
 
     private View view;
     private List<News.ResultBean.DataBean> list;
-    private Myadapter myadapter;
+    public   Myadapter myadapter;
     private XListView xlv;
+
 
 
     @Nullable

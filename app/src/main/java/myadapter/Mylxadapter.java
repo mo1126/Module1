@@ -5,11 +5,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import com.bwie.bean.Lxstate;
-import com.bwie.module.LixianActivity;
+import Bean.Lxstate;
+
 import com.bwie.module.R;
 
 import java.util.List;

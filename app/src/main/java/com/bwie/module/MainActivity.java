@@ -1,9 +1,11 @@
 package com.bwie.module;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -29,6 +31,8 @@ import org.json.JSONObject;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import Bean.News;
@@ -74,7 +78,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView();
         setslidingmenu();
         initData();
-
     }
 
     private void initView() {
@@ -82,6 +85,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.pindao = (ImageView) findViewById(R.id.pindao);
         this.pindao.setOnClickListener(this);
     }
+
+
 
     private void initData() {
 
@@ -104,39 +109,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             list.add(new Pindao("财经",false));
             list.add(new Pindao("时尚",false));
         }
+        fragmentList=null;
         fragmentList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             if(list.get(i).isSelect){
                 switch (list.get(i).name){
                     case "头条":
                         fragmentList.add(new MyFragment());
+                        System.out.println("头条");
                         break;
                     case "社会":
                         fragmentList.add(new MyFragmentSH());
+                        System.out.println("社会");
                         break;
                     case "国内":
                         fragmentList.add(new MyFragmentGN());
+                        System.out.println("国内");
                         break;
                     case "国际":
                         fragmentList.add(new MyFragmentGJ());
+                        System.out.println("国际");
                         break;
                     case "娱乐":
                         fragmentList.add(new MyFragmentYL());
+                        System.out.println("娱乐");
                         break;
                     case "体育":
                         fragmentList.add(new MyFragmentTY());
+                        System.out.println("体育");
                         break;
                     case "军事":
                         fragmentList.add(new MyFragmentJS());
+                        System.out.println("军事");
                         break;
                     case "科技":
                         fragmentList.add(new MyFragmentKJ());
+                        System.out.println("科技");
                         break;
                     case "财经":
                         fragmentList.add(new MyFragmentCJ());
+                        System.out.println("财经");
                         break;
                     case "时尚":
                         fragmentList.add(new MyFragmentSS());
+                        System.out.println("时尚");
                         break;
                 }
             }
@@ -163,11 +179,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        fragmentList.add(new MyFragmentKJ());
 //        fragmentList.add(new MyFragmentCJ());
 //        fragmentList.add(new MyFragmentSS());
-
         zdy.diaplay(list, fragmentList);
-
-
-
     }
 
     private void setslidingmenu() {
@@ -202,18 +214,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             resultJson = data.getStringExtra(ChannelActivity.RESULT_JSON_KEY);
             sp.edit().putString("pindao",resultJson).commit();
             list.clear();
+            fragmentList.clear();
             initData();
-            this.recreate();
-        }
+            //recreate();
 
+        }
     }
+
+
 
     //左侧滑菜单的更多登陆方式点击事件
     public void morelogin(View view){
         Intent intent=new Intent(this, MoreLoginActivity.class);
         startActivity(intent);
     }
-
     @Override
     public void onClick(View view) {
         switch(view.getId()){

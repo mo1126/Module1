@@ -1,4 +1,4 @@
-package com.bwie.bean;
+package Bean;
 
 /**
  * Created by Mo on 2017/9/5.

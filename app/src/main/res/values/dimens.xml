@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="offset">50dp</dimen>
+    <dimen name="bigtextsize">25dp</dimen>
+    <dimen name="textsize">13dp</dimen>
 </resources>

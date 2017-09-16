@@ -40,6 +40,7 @@ public class ZdyView extends LinearLayout implements ViewPager.OnPageChangeListe
     private LinearLayout ll;
     private HorizontalScrollView scrollView;
     private List<TextView> tv_list;
+    private Mypageradapter mypageradapter;
 
     public ZdyView(Context context) {
         this(context,null);
@@ -74,9 +75,11 @@ public class ZdyView extends LinearLayout implements ViewPager.OnPageChangeListe
     }
     //绘制页面
     private void darwUi() {
-        System.out.println(list.toString());
-        System.out.println(fragments.toString());
+        /*System.out.println(list.toString());
+        System.out.println(fragments.toString());*/
         drawtop();
+        //vp.removeAllViews();
+        //vp.removeAllViewsInLayout();
         drawViewpager();
     }
 
@@ -85,9 +88,14 @@ public class ZdyView extends LinearLayout implements ViewPager.OnPageChangeListe
      */
 
     private void drawViewpager() {
-        Mypageradapter mypageradapter = new Mypageradapter(((FragmentActivity) context).getSupportFragmentManager());
-        vp.setAdapter(mypageradapter);
-        mypageradapter.notifyDataSetChanged();
+if(mypageradapter==null){
+    mypageradapter = new Mypageradapter(((FragmentActivity) context).getSupportFragmentManager());
+    vp.setAdapter(mypageradapter);
+}else{
+    mypageradapter.notifyDataSetChanged();
+}
+
+
     }
 
 
@@ -121,13 +129,13 @@ public class ZdyView extends LinearLayout implements ViewPager.OnPageChangeListe
 
         @Override
         public int getCount() {
-            int sum=0;
+            /*int sum=0;
             for (int i = 0; i < list.size(); i++) {
                 if(list.get(i).isSelect){
                     sum++;
                 }
-            }
-            return sum;
+            }*/
+            return fragments.size();
         }
 
         @Override

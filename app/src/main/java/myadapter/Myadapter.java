@@ -2,6 +2,7 @@ package myadapter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -88,7 +89,7 @@ public class Myadapter extends BaseAdapter{
                 case atype:
                     holder1=new ViewHolder1();
                     view=View.inflate(context, R.layout.item1,null);
-                    holder1.title=view.findViewById(R.id.title1);
+                    holder1.title=view.findViewById(R.id.title3);
                     holder1.author_name=view.findViewById(R.id.author_name1);
                     holder1.date=view.findViewById(R.id.date1);
                     holder1.iv=view.findViewById(R.id.iv1);
@@ -116,11 +117,26 @@ public class Myadapter extends BaseAdapter{
         }
         SharedPreferences bigorno = context.getSharedPreferences("bigorno", Context.MODE_PRIVATE);
         boolean b = bigorno.getBoolean("big", true);
+
+        SharedPreferences textsize = context.getSharedPreferences("textsize", Context.MODE_PRIVATE);
+        boolean size= textsize.getBoolean("textsize", false);
+        System.out.println("asddddddddddddddddddddddddddddddddddddddddd"+size);
         switch (type){
             case atype:
                 holder1.title.setText(list.get(i).title);
                 holder1.author_name.setText(list.get(i).author_name);
                 holder1.date.setText(list.get(i).date);
+                if(size){
+                    holder1.title.setTextSize(20);
+                    holder1.author_name. setTextSize(15);
+                    holder1.date. setTextSize(15);
+                }else{
+                    holder1.title.setTextSize(13);
+                    holder1.author_name.setTextSize(13);
+                    holder1.date.setTextSize(13);
+                }
+
+
                 if(b){
                     ImageLoader.getInstance().displayImage(list.get(i).thumbnail_pic_s,holder1.iv);
                 }
@@ -129,10 +145,20 @@ public class Myadapter extends BaseAdapter{
                holder2.title2.setText(list.get(i).title);
                 holder2.author_name2.setText(list.get(i).author_name);
                 holder2.date2.setText(list.get(i).date);
+
+                if(size){
+                    holder2.title2.setTextSize(20);
+                    holder2.author_name2. setTextSize(20);
+                    holder2.date2. setTextSize(20);
+                }else{
+                    holder2.title2.setTextSize(13);
+                    holder2.author_name2.setTextSize(13);
+                    holder2.date2.setTextSize(13);
+                }
+
                 if(b){
                     ImageLoader.getInstance().displayImage(list.get(i).thumbnail_pic_s,holder2.iv2);
                 }
-
                 break;
         }
         return view;

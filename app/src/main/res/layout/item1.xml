@@ -10,7 +10,7 @@
         android:layout_margin="10dp"/>
     <TextView
         android:layout_margin="10dp"
-        android:id="@+id/title1"
+        android:id="@+id/title3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/iv1"
